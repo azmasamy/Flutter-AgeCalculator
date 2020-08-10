@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
-          child: Text('Date of Birth',
+          child: Text('Today Date',
               style: TextStyle(color: Colors.grey, fontSize: 20)),
         ),
         TextField(
