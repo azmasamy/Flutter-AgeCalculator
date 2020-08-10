@@ -1,13 +1,21 @@
-
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
 
-class AppNav extends StatelessWidget{
-
+class AppNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.light,
+        accentColor: Colors.orangeAccent,
+        primaryColor: Colors.orange,
+          cardColor: Colors.yellow,
+          backgroundColor: Colors.yellow,
+        highlightColor: Colors.yellow,
+        splashColor: Colors.yellow,
+
+      ),
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.orange,
@@ -21,9 +29,8 @@ class AppNav extends StatelessWidget{
             ),
           ],
         ),
-      body: SingleChildScrollView(child: HomeScreen()),
+        body: SingleChildScrollView(child: HomeScreen()),
       ),
     );
   }
-
 }

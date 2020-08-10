@@ -1,19 +1,18 @@
-
 import 'package:flutter/material.dart';
+import 'text_field_controller.dart';
 
 class HomeScreen extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
 
-    Widget _generateTextField(String inputFieldText) {
+    /*Widget _generateTextField(String inputFieldText) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
-            child: Text(inputFieldText, style: TextStyle(color: Colors.grey, fontSize: 20)),
+            child: Text(inputFieldText,
+                style: TextStyle(color: Colors.grey, fontSize: 20)),
           ),
           Theme(
             data: new ThemeData(
@@ -21,6 +20,7 @@ class HomeScreen extends StatelessWidget {
               primaryColorDark: Colors.orange,
             ),
             child: TextField(
+              controller: TextEditingController()..text = 'Edited',
               decoration: InputDecoration(
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       );
-    }
+    }*/
 
     Widget _generateButton(String buttonName) {
       return ButtonTheme(
@@ -48,35 +48,41 @@ class HomeScreen extends StatelessWidget {
         child: RaisedButton(
           color: Colors.orange,
           onPressed: () {},
-          child: Text(buttonName.toUpperCase(), style: TextStyle(fontSize: 20, color: Colors.white)),
+          child: Text(buttonName.toUpperCase(),
+              style: TextStyle(fontSize: 20, color: Colors.white)),
         ),
       );
     }
 
-    Widget _generateOutputField(String fieldName){
+    Widget _generateOutputField(String fieldName) {
       return Column(
         children: <Widget>[
           Container(
             color: Colors.orange,
             width: 115,
             height: 30,
-            child: Center(child: Text(fieldName, style: TextStyle(color: Colors.white),)),
+            child: Center(
+                child: Text(
+              fieldName,
+              style: TextStyle(color: Colors.white),
+            )),
           ),
           Container(
-            decoration: BoxDecoration(
-                border: Border.all(color: Colors.orange)
-            ),
+            decoration: BoxDecoration(border: Border.all(color: Colors.orange)),
             width: 115,
             height: 30,
-            child: Center(child: Text("", style: TextStyle(color: Colors.grey),)),
+            child: Center(
+                child: Text(
+              "",
+              style: TextStyle(color: Colors.grey),
+            )),
           )
         ],
       );
     }
 
-
-    Widget dateOfBirth = _generateTextField("Date of Birth");
-    Widget todayDate = _generateTextField("Today Date");
+    Widget dateOfBirth = TextFieldWidget("Date of Birth");
+    Widget todayDate = TextFieldWidget("Today Date");
 
     Widget clearButton = _generateButton("Clear");
     Widget calcButton = _generateButton("Calculate");
@@ -87,22 +93,16 @@ class HomeScreen extends StatelessWidget {
 
     Widget emptyBox = SizedBox(height: 20);
 
-
-
-
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-
           dateOfBirth,
           emptyBox,
-
           todayDate,
           emptyBox,
-
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -111,10 +111,12 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           emptyBox,
-
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
-            child: Text("Age is", style: TextStyle(fontSize: 20, color: Colors.grey),),
+            child: Text(
+              "Age is",
+              style: TextStyle(fontSize: 20, color: Colors.grey),
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -125,10 +127,12 @@ class HomeScreen extends StatelessWidget {
             ],
           ),
           emptyBox,
-
           Padding(
             padding: const EdgeInsets.only(bottom: 8.0),
-            child: Text("Next Birth Day in", style: TextStyle(fontSize: 20, color: Colors.grey),),
+            child: Text(
+              "Next Birth Day in",
+              style: TextStyle(fontSize: 20, color: Colors.grey),
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
