@@ -166,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
 
-    Widget ageYearsOutputField = Column(
+    /*Widget ageYearsOutputField = Column(
       children: <Widget>[
         Container(
           color: Colors.orange,
@@ -189,55 +189,11 @@ class _HomeScreenState extends State<HomeScreen> {
           )),
         )
       ],
-    );
-    Widget ageMonthsOutputField = Column(
-      children: <Widget>[
-        Container(
-          color: Colors.orange,
-          width: 115,
-          height: 30,
-          child: Center(
-              child: Text(
-            'Months',
-            style: TextStyle(color: Colors.white),
-          )),
-        ),
-        Container(
-          decoration: BoxDecoration(border: Border.all(color: Colors.orange)),
-          width: 115,
-          height: 30,
-          child: Center(
-              child: Text(
-            _ageMonthCount == null ? "" : "$_ageMonthCount",
-            style: TextStyle(color: Colors.grey),
-          )),
-        )
-      ],
-    );
-    Widget ageDaysOutputField = Column(
-      children: <Widget>[
-        Container(
-          color: Colors.orange,
-          width: 115,
-          height: 30,
-          child: Center(
-              child: Text(
-            "Days",
-            style: TextStyle(color: Colors.white),
-          )),
-        ),
-        Container(
-          decoration: BoxDecoration(border: Border.all(color: Colors.orange)),
-          width: 115,
-          height: 30,
-          child: Center(
-              child: Text(
-            _ageDayCount == null ? "" : "$_ageDayCount",
-            style: TextStyle(color: Colors.grey),
-          )),
-        )
-      ],
-    );
+    );*/
+
+    Widget ageYearsOutputField = _buildOutputField("Years", _ageYearCount.toString());
+    Widget ageMonthsOutputField = _buildOutputField("Months", _ageMonthCount.toString());
+    Widget ageDaysOutputField = _buildOutputField("Days", _ageDayCount.toString());
     Widget ageOutputRow = Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -247,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     );
 
-    Widget nextBirthYearsOutputField = Column(
+    /*Widget nextBirthYearsOutputField = Column(
       children: <Widget>[
         Container(
           color: Colors.orange,
@@ -270,55 +226,10 @@ class _HomeScreenState extends State<HomeScreen> {
           )),
         )
       ],
-    );
-    Widget nextBirthMonthsOutputField = Column(
-      children: <Widget>[
-        Container(
-          color: Colors.orange,
-          width: 115,
-          height: 30,
-          child: Center(
-              child: Text(
-            'Months',
-            style: TextStyle(color: Colors.white),
-          )),
-        ),
-        Container(
-          decoration: BoxDecoration(border: Border.all(color: Colors.orange)),
-          width: 115,
-          height: 30,
-          child: Center(
-              child: Text(
-            _nextBirthMonthCount == null ? "" : "$_nextBirthMonthCount",
-            style: TextStyle(color: Colors.grey),
-          )),
-        )
-      ],
-    );
-    Widget nextBirthDaysOutputField = Column(
-      children: <Widget>[
-        Container(
-          color: Colors.orange,
-          width: 115,
-          height: 30,
-          child: Center(
-              child: Text(
-            "Days",
-            style: TextStyle(color: Colors.white),
-          )),
-        ),
-        Container(
-          decoration: BoxDecoration(border: Border.all(color: Colors.orange)),
-          width: 115,
-          height: 30,
-          child: Center(
-              child: Text(
-            _nextBirthDayCount == null ? "" : "$_nextBirthDayCount",
-            style: TextStyle(color: Colors.grey),
-          )),
-        )
-      ],
-    );
+    );*/
+    Widget nextBirthYearsOutputField = _buildOutputField("Years", _nextBirthYearCount.toString());
+    Widget nextBirthMonthsOutputField = _buildOutputField("Months", _nextBirthMonthCount.toString());
+    Widget nextBirthDaysOutputField = _buildOutputField("Days", _nextBirthDayCount.toString());
     Widget nextBirthOutputRow = Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
@@ -363,6 +274,33 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildOutputField(String outputTitle, String outputData){
+    return Column(
+      children: <Widget>[
+        Container(
+          color: Colors.orange,
+          width: 115,
+          height: 30,
+          child: Center(
+              child: Text(
+                outputTitle,
+                style: TextStyle(color: Colors.white),
+              )),
+        ),
+        Container(
+          decoration: BoxDecoration(border: Border.all(color: Colors.orange)),
+          width: 115,
+          height: 30,
+          child: Center(
+              child: Text(
+                outputData == "null" ? "" : outputData,
+                style: TextStyle(color: Colors.grey),
+              )),
+        )
+      ],
     );
   }
 }
