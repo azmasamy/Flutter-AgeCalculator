@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:age/age.dart';
+import 'application_logic.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -179,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () {
           setState(() {
             _birthDate = null;
-            _todayDate = null;
+            _dateOfBirthController.text = _getFormattedDate(_birthDate);
 
             _ageYearCount = null;
             _ageMonthCount = null;
@@ -203,23 +203,20 @@ class _HomeScreenState extends State<HomeScreen> {
       child: RaisedButton(
         color: Colors.orange,
         onPressed: () {
-          AgeDuration age = Age.dateDifference(
-              fromDate: _birthDate, toDate: _todayDate, includeToDate: false);
-          DateTime tempDate =
-              DateTime(_todayDate.year, _birthDate.month, _birthDate.day);
-          DateTime nextBirthdayDate = tempDate.isBefore(_todayDate)
-              ? Age.add(date: tempDate, duration: AgeDuration(years: 1))
-              : tempDate;
-          AgeDuration nextBirthdayDuration = Age.dateDifference(
-              fromDate: _todayDate, toDate: nextBirthdayDate);
-          setState(() {
-            _ageYearCount = age.years;
-            _ageMonthCount = age.months;
-            _ageDayCount = age.days;
+          MyDate age = new MyDate();
+          MyDate nextBirthdayDuration = new MyDate();
 
-            _nextBirthYearCount = nextBirthdayDuration.years;
-            _nextBirthMonthCount = nextBirthdayDuration.months;
-            _nextBirthDayCount = nextBirthdayDuration.days;
+          age.calculateAge(_birthDate, _todayDate);
+          nextBirthdayDuration.calculateNextBirthDay(_birthDate, _todayDate);
+
+          setState(() {
+            _ageYearCount = age.getYears();
+            _ageMonthCount = age.getMonths();
+            _ageDayCount = age.getDays();
+
+            _nextBirthYearCount = nextBirthdayDuration.getYears();
+            _nextBirthMonthCount = nextBirthdayDuration.getMonths();
+            _nextBirthDayCount = nextBirthdayDuration.getDays();
           });
         },
         child: Text('CALCULATE',
