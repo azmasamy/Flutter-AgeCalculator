@@ -39,7 +39,6 @@ class MyDate {
     _days = nextBirthdayDuration.days;
     _months = nextBirthdayDuration.months;
     _years = nextBirthdayDuration.years;
-
   }
 
 }

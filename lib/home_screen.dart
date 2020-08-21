@@ -280,11 +280,4 @@ class _HomeScreenState extends State<HomeScreen> {
         .toString()
         .substring(0, date.toString().indexOf(' ')));
   }
-
-/*  TextEditingController()
-  ..text = (_todayDate == null
-  ? ''
-      : _todayDate
-      .toString()
-      .substring(0, _todayDate.toString().indexOf(' '))),*/
 }
